@@ -1,0 +1,121 @@
+{% extends 'layout.html' %}
+{% block title %} Data Analysis{% endblock %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>Preview</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+
+    <!-- Favicons -->
+    <link href="assets/img/favicon.png" rel="icon">
+    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="../static/assets/vendor/animate.css/animate.min.css" rel="stylesheet">
+    <link href="../static/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../static/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="../static/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link href="../static/assets/css/style.css" rel="stylesheet">
+  </head>
+
+<body>
+  <!-- ======= Property Search Section ======= -->
+  <div class="click-closed"></div>
+  <!--/ Form Search Star /-->
+  <div class="box-collapse">
+  </div>
+  <!-- End Property Search Section -->>
+
+  <!-- ======= Navbar ======= -->
+  <nav class="navbar navbar-default navbar-trans navbar-expand-lg fixed-top">
+    <div class="container">
+      <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarDefault" aria-controls="navbarDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <a class="navbar-brand text-brand" href="{{url_for('home')}}">Tess<span class="color-b">Lane</span></a>
+
+      <div class="navbar-collapse collapse justify-content-center" id="navbarDefault">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link " style="margin-left: 670px" href="{{url_for('upload')}}">Upload</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " href="{{url_for('result')}}">Prediction</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="{{url_for('chart')}}">Visualization</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " href="{{url_for('home')}}">Logout</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- End Navbar -->
+
+  <main id="main">
+
+    <!-- ======= Intro Single ======= -->
+    <section class="intro-single">
+      <div class="container">
+	    <div class="col-md-6 col-lg-4" style="margin-left:445px"><h2>Exploratory Data Analysis</h2></div>
+        <div class="row">
+          <div class="col-md-12 col-lg-8">
+            <div class="section-title">
+              <center><div id="columnchart_values" style="width: 900px; height: 50px;"></div> </center>
+
+              <center><img src ="{{ user_image }}"></center>
+              <center>The weight (gram) of the product presented in this chart.</center><br>
+              <center><img src="{{ user_image2 }}"></center>
+              <center>The Item Maximum Retail Price (MRP) of the product.</center><br>
+              <center><img src="{{ user_image3 }}"></center>
+              <center>The Item Sales are the total sales of the product.</center><br>
+              <center><img src="{{ user_image4 }}"></center>
+              <center>The Outlet size is the size of the ground area of the store.</center><br>
+              <center><img src="{{ user_image5 }}"></center>
+              <center>The Item fat content the of the product.</center><br>
+              <center><img src="{{ user_image6 }}"></center>
+              <center>The Category of the product in the system.</center><br>
+              <center><img src="{{ user_image7 }}"></center>
+              <center>The outlet type where the prodcuts arebeing sold.</center><br>
+              <center><img src="{{ user_image8 }}"></center>
+              <center>The Establishment year of the outlet store.</center><br>
+	          </div>
+			    </div>
+        </div>
+      </div>
+    </section>
+    <!-- End Intro Single-->
+
+  </main>
+  <!-- End #main -->
+
+  <div id="preloader"></div>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="../static/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../static/assets/vendor/php-email-form/validate.js"></script>
+  <script src="../static/assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="../static/assets/js/main.js"></script>
+
+</body>
+</html>
+{% endblock %}

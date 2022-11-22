@@ -1,0 +1,5 @@
+<<<<<<< Updated upstream
+web:sh setup.sh && streamlit run app.py
+=======
+web: gunicorn app:app --log-level debug
+>>>>>>> Stashed changes

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    
+  <title>prediction</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+  
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+    
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
+    
+  <!-- Vendor CSS Files -->
+  <link href="../static/assets/vendor/animate.css/animate.min.css" rel="stylesheet">
+  <link href="../static/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../static/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="../static/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+    
+  <!-- Template Main CSS File -->
+  <link href="../static/assets/css/style.css" rel="stylesheet">
+    
+  </head>
+
+  <body>
+    <!-- ======= Property Search Section ======= -->
+    <div class="click-closed"></div>
+    <!--/ Form Search Star /-->
+
+    <!-- ======= Navbar ======= -->
+    <nav class="navbar navbar-default navbar-trans navbar-expand-lg fixed-top">
+    <div class="container">
+      <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarDefault" aria-controls="navbarDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    
+      <a class="navbar-brand text-brand" href="{{url_for('home')}}">Tess<span class="color-b">Lane</span></a>
+      <div class="navbar-collapse collapse justify-content-center" id="navbarDefault">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link " style="margin-left: 670px" href="{{url_for('upload')}}">Upload</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="{{url_for('result')}}">Prediction</a>
+          </li>
+            <li class="nav-item">
+              <a class="nav-link " href="{{url_for('chart')}}">Visualization</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link " href="{{url_for('home')}}">Logout</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    </nav>
+      <!-- End Navbar -->
+
+    <div class="intro intro-carousel swiper-container position-relative">
+      <div class="swiper-slide carousel-item-a intro-item bg-image" style="background-image: url(../static/assets/img/chicharon.jpg)">
+        <div class="overlay overlay-a"></div>
+          <div class="intro-content display-table">
+            <div class="table-cell">
+              <div class="wrapper">
+                <div class="container my-5">
+                  <div class="row">
+                    <div class="col-md-5 col-sm-6 mx-auto">
+                      <form class="" action="/predict" method="post">
+                      <br>
+                      <input type="text" name="item_weight" id="item_weight" Placeholder="Input Item Weight(g)" class="form-control" required>
+                      <br>
+
+                      <select class="form-control" name="item_fat_content" required="required" >
+                        <option value="" selected>Select Item Fat Content</option>
+                        <option value="0">Low Fat</option>
+                        <option value="1">Regular</option>
+                        <option value="2">High Fat</option>
+                      </select>
+                      <br>
+
+                      <select class="form-control chosenn" name="item_type" required="required">
+                        <option value="" selected>Select Item Type</option>
+                        <option value="0">Biscuits</option>
+                        <option value="1">Bread</option>
+                        <option value="2">Chicharon</option>
+                        <option value="3">Cracker</option>
+                        <option value="4">Nuts</option>
+                      </select>
+                      <br>
+ 
+                      <input type="text" name="item_mrp" id="item_mrp" class="form-control" Placeholder="Input Item MRP(Price)" required>
+                      <br>
+
+                      <select class="form-control chosenn" name="outlet_establishment_year" required="required">
+                        <option value="" selected>Select Outlet Establishment Year</option>
+                        <option value="0">2010</option>
+                        <option value="1">2014</option>
+                        <option value="2">2016</option>
+                      </select>
+                      <br>
+ 
+                      <select class="form-control chosenn" name="outlet_size" required="required">
+                        <option value="" selected>Select Outlet Size</option>
+                        <option value="0">Medium</option>
+                        <option value="1">Small</option>
+                      </select>
+                      <br>
+ 
+                      <select class="form-control chosenn" name="outlet_type" required="required">
+                        <option value="" selected>Select Outlet type</option>
+                        <option value="0">Micro Store - Main</option>
+                        <option value="1">Micro Store - B</option>
+                        <option value="2">Micro Store - C</option>
+                      </select>
+                      <br>
+
+                      <input type="submit" class="btn btn-primary" value="Submit" style="margin-left:70px">
+                      <input type="reset" class="btn btn-danger" value="Reset" style="margin-left:220px">
+
+                      </form>
+                    </div>
+                    <br><center><a class="navbar-brand text-brand" > <span class="color-b">Predicted Sales: ₱ {{ prediction_text }}</span></a></center>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+     integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+     integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    </body>
+
+  </html>
